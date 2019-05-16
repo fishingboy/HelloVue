@@ -2,20 +2,18 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-  <label for="jack">Jack</label>
-  <input type="checkbox" id="john" value="John" v-model="checkedNames">
-  <label for="john">John</label>
-  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-  <label for="mike">Mike</label>
+  <label><input type="checkbox" value="Jack" v-model="checkedNames"> Jack</label>
+  <label><input type="checkbox" value="John" v-model="checkedNames"> John</label>
+  <label><input type="checkbox" value="Mike" v-model="checkedNames"> Mike</label>
   <br>
   <span>Checked names: {{ checkedNames | json }}</span>
 </div>
 <script>
-  new Vue({
+  var app = new Vue({
     el: '#app',
     data: {
       checkedNames: []
     }
-  })
+  });
+  app.checkedNames = ["John"];
 </script>
