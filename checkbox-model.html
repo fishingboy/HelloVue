@@ -2,9 +2,12 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-  <label><input type="checkbox" value="Jack" v-model="checkedNames"> Jack</label>
-  <label><input type="checkbox" value="John" v-model="checkedNames"> John</label>
-  <label><input type="checkbox" value="Mike" v-model="checkedNames"> Mike</label>
+
+  <label v-for="name in names" >
+      <input type="checkbox" :value="name" v-model="checkedNames">
+      {{ name }}
+  </label>
+
   <br>
   <span>Checked names: {{ checkedNames | json }}</span>
 </div>
@@ -13,6 +16,7 @@
     el: '#app',
     data: function () {
         return {
+            names : ["Jack", "John", "Mike", "Leo", "Lay"],
             checkedNames: []
         };
     }
