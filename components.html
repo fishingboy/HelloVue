@@ -6,10 +6,14 @@
   <prompt-component></prompt-component>
 </div>
 
+<script  type="text/x-template" id="prompt-template">
+    <div><p>${ message }</p><button @click="sayHi">Say Hi!</button></div>
+</script>
+
 
 <script>
 var Prompt = {
-  template: '<div><p>${ message }</p><button @click="sayHi">Say Hi!</button></div>',
+  template: '#prompt-template',
   delimiters: ['${', '}'],
   data: function () {
     return {
