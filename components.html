@@ -1,0 +1,32 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<div id="app">
+  <prompt-component></prompt-component>
+</div>
+
+
+<script>
+var Prompt = {
+  template: '<div><p>${ message }</p><button @click="sayHi">Say Hi!</button></div>',
+  delimiters: ['${', '}'],
+  data: function () {
+    return {
+      message: 'Hello World!'
+    }
+  },
+  methods: {
+    sayHi: function() {
+      alert('Hi');
+    }
+  }
+};
+
+var vm = new Vue({
+  el: '#app',
+  components: {
+    'prompt-component': Prompt
+  }
+});
+</script>
