@@ -1,0 +1,47 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <list-component></list-component>
+</div>
+
+<script  type="text/x-template" id="list-template">
+    <div class="lists" ref="one">
+        <label v-for="list in lists">
+            <input type="checkbox" :value="list" v-model="ids">
+            {{ list }}
+        </label>
+    </div>
+</script>
+
+
+<script>
+    let List = {
+        template: '#list-template',
+        // delimiters: ['${', '}'],
+        data: function () {
+            return {
+                lists : [
+                    "Leo",
+                    "Cool",
+                    "Mou",
+                ],
+                ids : [
+                    "Leo"
+                ],
+            }
+        },
+        methods: {
+            sayHi: function() {
+                alert('Hi');
+            }
+        }
+    };
+
+    let app = new Vue({
+        el: '#app',
+        components: {
+            'list-component': List
+        }
+    });
+</script>
