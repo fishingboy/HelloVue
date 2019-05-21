@@ -2,11 +2,11 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-    <list-component></list-component>
+    <list-component ref="list"></list-component>
 </div>
 
 <script  type="text/x-template" id="list-template">
-    <div class="lists" ref="one">
+    <div class="lists">
         <label v-for="list in lists">
             <input type="checkbox" :value="list" v-model="ids">
             {{ list }}
@@ -26,9 +26,7 @@
                     "Cool",
                     "Mou",
                 ],
-                ids : [
-                    "Leo"
-                ],
+                ids : [],
             }
         },
         methods: {
@@ -44,4 +42,8 @@
             'list-component': List
         }
     });
+
+    app.$refs.list.ids.push("Leo");
+
+    console.log(app.$refs.list.ids);
 </script>

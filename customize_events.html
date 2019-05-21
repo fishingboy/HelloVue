@@ -1,0 +1,36 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <child v-on:childmethod="parentMethod"></child>
+</div>
+
+<template type="text/x-template" id="child-template">
+    <button @click="handleClick">Emit</button>
+</template>
+
+<script>
+    var child = {
+        template: "#child-template",
+        methods: {
+            handleClick() {
+                this.$emit('childmethod');
+            },
+        },
+    };
+
+    var vue = new Vue({
+        name: 'App',
+        el: '#app',
+        components: {
+            child : child,
+        },
+        methods: {
+            parentMethod() {
+                console.log('Hello World');
+            },
+        },
+    });
+</script>
+
+
