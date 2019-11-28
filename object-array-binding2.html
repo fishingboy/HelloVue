@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <div v-for="item in form.items">
+        <select v-model="item.type">
+            <option value="text">text</option>
+            <option value="link">link</option>
+            <option value="youtube">youtube</option>
+        </select>
+        <textarea v-if="item.type=='text'" type="text" v-model="item.name"></textarea>
+        <input v-if="item.type=='link'" type="text" v-model="item.name">
+        <input v-if="item.type=='youtube'" type="text" v-model="item.name">
+    </div>
+    <button @click="add_item">增加一列</button>
+    <button @click="show_item">取值</button>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            form : {
+                items: [
+                    {"type":"text", "name": "leo"},
+                    {"type":"link", "name": "mou"},
+                ]
+            }
+        },
+        methods : {
+            add_item : function () {
+                this.form.items.push({"type":"youtube"});
+            },
+            show_item : function () {
+                console.log("form", this.form);
+                alert(JSON.stringify(this.form));
+            }
+        }
+    })
+</script>
