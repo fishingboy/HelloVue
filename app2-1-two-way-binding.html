@@ -1,0 +1,13 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app-2-1">
+  <input style='width:500px;' id="msg" v-model:value="message" />
+</div>
+<script>
+    var app2 = new Vue({
+        el: '#app-2-1',
+        data: {
+            message: 'You loaded this page on ' + new Date().toLocaleString()
+        }
+    })
+</script>
