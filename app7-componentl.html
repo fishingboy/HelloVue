@@ -14,8 +14,20 @@
             v-bind:todo="item"
             v-bind:key="item.id"
     ></todo-item>
+    <todo_item2
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="'item' + item.id"
+    ></todo_item2>
   </ol>
 </div>
+
+<template id="todo-template">
+  <li>
+    <input type="radio">
+    {{ todo.text }}
+  </li>
+</template>
 
 <script>
   Vue.component('todo-item', {
@@ -23,7 +35,17 @@
     template: '<li>{{ todo.text }}</li>'
   });
 
+
+  // component 的值都要用 props 指定進來才讀得到
+  var todo_item2 = {
+    props: ['todo'],
+    template: "#todo-template",
+  };
+
   var app7 = new Vue({
+    components : {
+      todo_item2: todo_item2
+    },
     el: '#app-7',
     data: {
       groceryList: [
