@@ -1,19 +1,23 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <div id="app-5">
-  <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+    <button @click="appendMessage">Append Message</button>
 </div>
 <script>
-  var app5 = new Vue({
-    el: '#app-5',
-    data: {
-      message: 'Hello Vue.js!'
-    },
-    methods: {
-      reverseMessage: function () {
-        this.message = this.message.split('').reverse().join('')
-      }
-    }
-  });
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            },
+            appendMessage: function () {
+                this.message = this.message + " !!! ";
+            }
+        }
+    });
 </script>
