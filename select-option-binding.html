@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <select v-model="item">
+        <option v-for="item in items" v-model="item">{{item}}</option>
+    </select>
+    <button @click="add_item">add select option</button>
+    <button @click="show_item">show selected option</button>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            item : 0,
+            items: [1,2,3]
+        },
+        methods : {
+            add_item : function () {
+                this.items.push(5);
+            },
+            show_item : function () {
+                alert(this.item);
+            }
+        }
+    })
+</script>
